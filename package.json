@@ -53,8 +53,7 @@
   },
     "lint-staged": {
       "*.ts": [
-        "eslint 'src/**' --fix",
-        "npm run test:staged"
+        "eslint 'src/**' --fix"
       ]
     }
 }
