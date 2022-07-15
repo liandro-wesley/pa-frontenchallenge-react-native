@@ -5,7 +5,7 @@ module.exports = {
       'module-resolver',
       {
         alias: {
-          '@myapp': './app',
+          '@presentation': './src/presentation',
         },
       },
     ],
