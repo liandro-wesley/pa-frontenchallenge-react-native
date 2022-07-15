@@ -51,9 +51,10 @@
       "node"
     ]
   },
-  "lint-staged": {
-    "src/**/*.{ts, tsx}": [
-      "eslint --ext .tsx --ext .ts 'src/**' --fix --max-warnings=0"
-    ]
-  }
+    "lint-staged": {
+      "*.ts": [
+        "eslint 'src/**' --fix",
+        "npm run test:staged"
+      ]
+    }
 }
