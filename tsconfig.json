@@ -21,11 +21,12 @@
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "skipLibCheck": false,
+    "experimentalDecorators": true,
     "baseUrl": "./",
     "paths": {
       "@presentation/*": ["src/presentation/*"],
-
-      // Data Path Mapping
+      "@domain/*": ["src/domain/*"],
+      "@infra/*": ["src/infra/*"],
       "@data/*": ["src/data/*"]
     }
   },
