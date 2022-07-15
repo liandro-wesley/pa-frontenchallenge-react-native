@@ -11,6 +11,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-react": "^7.28.0",
     "react": "18.0.0",
@@ -51,9 +52,9 @@
       "node"
     ]
   },
-    "lint-staged": {
-      "*.ts": [
-        "eslint 'src/**' --fix"
-      ]
-    }
+  "lint-staged": {
+    "*.ts": [
+      "eslint 'src/**' --fix"
+    ]
+  }
 }

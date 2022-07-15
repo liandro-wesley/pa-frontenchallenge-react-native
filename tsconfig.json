@@ -23,7 +23,10 @@
     "skipLibCheck": false,
     "baseUrl": "./",
     "paths": {
-      "@presentation/*": ["src/presentation/*"]
+      "@presentation/*": ["src/presentation/*"],
+
+      // Data Path Mapping
+      "@data/*": ["src/data/*"]
     }
   },
   "exclude": [

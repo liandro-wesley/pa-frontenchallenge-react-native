@@ -6,6 +6,7 @@ module.exports = {
       {
         alias: {
           '@presentation': './src/presentation',
+          '@data': './src/data',
         },
       },
     ],
