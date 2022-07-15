@@ -1,3 +1,8 @@
+/**
+ * @enum
+ * Must be used to check the statusCode of a request
+ */
+
 export enum HttpStatus {
   CONTINUE = 100,
   SWITCHING_PROTOCOLS = 101,
