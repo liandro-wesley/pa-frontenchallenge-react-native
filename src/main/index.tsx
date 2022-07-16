@@ -1,19 +1,18 @@
 import React from 'react';
-import {StatusBar, StyleSheet, View} from 'react-native';
+import {StatusBar} from 'react-native';
+import styled from 'styled-components/native';
 import Navigation from './navigation/navigation';
 const Main: React.FC = () => {
   return (
-    <View style={styles.wrapperScreen}>
+    <WrapperScreen>
       <StatusBar />
       <Navigation />
-    </View>
+    </WrapperScreen>
   );
 };
 
-const styles = StyleSheet.create({
-  wrapperScreen: {
-    flex: 1,
-  },
-});
+const WrapperScreen = styled.View`
+  flex: 1;
+`;
 
 export default Main;
