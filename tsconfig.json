@@ -6,7 +6,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
-    "types": ["react-native", "jest"],
+    "types": ["react-native", "jest", "styled-components-react-native"],
     "lib": [
       "es2019"
     ],
@@ -27,7 +27,8 @@
       "@presentation/*": ["src/presentation/*"],
       "@domain/*": ["src/domain/*"],
       "@infra/*": ["src/infra/*"],
-      "@data/*": ["src/data/*"]
+      "@data/*": ["src/data/*"],
+      "@main/*": ["src/main/*"]
     }
   },
   "exclude": [
