@@ -1,11 +1,19 @@
+import {GetAllPosts} from '@domain/usecases/get-all-posts.domain';
 import React from 'react';
 import {SafeAreaView, Text} from 'react-native';
+import {HomeScreenCosumer} from './contex';
 
-const HomeScreen: React.FC = () => {
+export type HomeScreenProps = {
+  getAllPosts: GetAllPosts;
+};
+
+const HomeScreen: React.FC<HomeScreenProps> = ({getAllPosts}) => {
   return (
-    <SafeAreaView>
-      <Text>Home</Text>
-    </SafeAreaView>
+    <HomeScreenCosumer service={getAllPosts}>
+      <SafeAreaView>
+        <Text>Home</Text>
+      </SafeAreaView>
+    </HomeScreenCosumer>
   );
 };
 
