@@ -5,8 +5,8 @@ import React, {
   useContext,
   ReactNode,
   useState,
-  Dispatch,
-  SetStateAction,
+  // Dispatch,
+  // SetStateAction,
   useEffect,
 } from 'react';
 import {Alert} from 'react-native';
@@ -46,6 +46,7 @@ export function HomeScreenCosumer({children, service}: HomeScreenCosumerProps) {
         setLoading(false);
       }
     };
+    triggerToGetAllPosts();
   });
 
   const value = {

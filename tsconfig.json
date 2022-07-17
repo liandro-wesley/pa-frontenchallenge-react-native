@@ -23,7 +23,7 @@
     "skipLibCheck": false,
     "experimentalDecorators": true,
     "baseUrl": "./",
-    "typeRoots": ["./env.d.ts"],
+    "typeRoots": ["src/main/@types/*"],
     "paths": {
       "@presentation/*": ["src/presentation/*"],
       "@domain/*": ["src/domain/*"],

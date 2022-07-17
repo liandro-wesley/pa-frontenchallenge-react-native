@@ -1,18 +1,17 @@
+import WrapperLayout from '@presentation/layouts/WrapperLayout';
 import React from 'react';
-import {StatusBar} from 'react-native';
-import styled from 'styled-components/native';
+import {ThemeProvider} from 'styled-components';
 import Navigation from './navigation/navigation';
+import theme from '@presentation/theme';
+
 const Main: React.FC = () => {
   return (
-    <WrapperScreen>
-      <StatusBar />
-      <Navigation />
-    </WrapperScreen>
+    <ThemeProvider theme={theme}>
+      <WrapperLayout>
+        <Navigation />
+      </WrapperLayout>
+    </ThemeProvider>
   );
 };
-
-const WrapperScreen = styled.View`
-  flex: 1;
-`;
 
 export default Main;
