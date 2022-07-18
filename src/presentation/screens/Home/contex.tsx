@@ -1,5 +1,6 @@
 import {GetAllPostsModel} from '@domain/models/get-all-posts.model';
 import {GetAllPosts} from '@domain/usecases/get-all-posts.domain';
+import {StorageClientAdapter} from '@infra/storage-client-adapter.infra';
 import React, {
   createContext,
   useContext,
@@ -15,6 +16,7 @@ import {Alert} from 'react-native';
 type HomeScreenCosumerProps = {
   children: ReactNode;
   service: GetAllPosts;
+  storage: StorageClientAdapter;
 };
 
 type InitialContextProps = {
