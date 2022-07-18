@@ -68,8 +68,8 @@
     ]
   },
   "lint-staged": {
-    "*.ts": [
-      "eslint 'src/**' --fix"
+    "src/**/*.{ts,tsx}": [
+      "eslint --ext .tsx --ext .ts src/ --fix"
     ]
   }
 }
