@@ -1,5 +1,5 @@
+import HomeScreenFactory from '@main/factories/screens/home.factory';
 import CreatePostScreen from '@presentation/screens/CreatePost';
-import HomeScreen from '@presentation/screens/Home';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
 
@@ -17,7 +17,7 @@ const StackNavigation: React.FC = () => {
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="Home" component={HomeScreenFactory} />
       <Stack.Screen name="Create" component={CreatePostScreen} />
     </Stack.Navigator>
   );
