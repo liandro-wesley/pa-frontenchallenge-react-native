@@ -1,6 +1,7 @@
 import {GetAllPosts} from '@domain/usecases/get-all-posts.domain';
+
 import React from 'react';
-import {Text} from 'react-native';
+import PostsList from './components/PostsList';
 import {HomeScreenCosumer} from './contex';
 import * as S from './styles';
 
@@ -12,7 +13,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({getAllPosts}) => {
   return (
     <HomeScreenCosumer service={getAllPosts}>
       <S.Container>
-        <Text>Home</Text>
+        <PostsList />
       </S.Container>
     </HomeScreenCosumer>
   );

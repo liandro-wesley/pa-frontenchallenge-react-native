@@ -8,6 +8,7 @@ import React, {
   // Dispatch,
   // SetStateAction,
   useEffect,
+  useCallback,
 } from 'react';
 import {Alert} from 'react-native';
 
@@ -33,21 +34,22 @@ export function HomeScreenCosumer({children, service}: HomeScreenCosumerProps) {
   const [loading, setLoading] = useState<boolean>(false);
   const [posts, setPosts] = useState<GetAllPostsModel>([]);
 
+  const triggerToGetAllPosts = useCallback(async () => {
+    try {
+      const response = await service.findAll();
+      setPosts(response);
+    } catch (error: any) {
+      setPosts([]);
+      Alert.alert('Atenção', `${error.message}`);
+      setLoading(false);
+    } finally {
+      setLoading(false);
+    }
+  }, [service]);
+
   useEffect(() => {
-    const triggerToGetAllPosts = async () => {
-      try {
-        const response = await service.findAll();
-        setPosts(response);
-      } catch (error) {
-        setPosts([]);
-        Alert.alert('Atenção', `${error}`);
-        setLoading(false);
-      } finally {
-        setLoading(false);
-      }
-    };
     triggerToGetAllPosts();
-  });
+  }, [triggerToGetAllPosts]);
 
   const value = {
     loading,
