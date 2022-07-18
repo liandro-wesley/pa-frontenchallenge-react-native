@@ -36,6 +36,7 @@ export function HomeScreenCosumer({children, service}: HomeScreenCosumerProps) {
 
   const triggerToGetAllPosts = useCallback(async () => {
     try {
+      setLoading(true);
       const response = await service.findAll();
       setPosts(response);
     } catch (error: any) {
