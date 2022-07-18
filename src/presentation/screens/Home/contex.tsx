@@ -32,7 +32,11 @@ export function useHomeScreenContext() {
   return useContext(HomeScreenContext);
 }
 
-export function HomeScreenCosumer({children, service}: HomeScreenCosumerProps) {
+export function HomeScreenCosumer({
+  children,
+  service,
+  storage,
+}: HomeScreenCosumerProps) {
   const [loading, setLoading] = useState<boolean>(false);
   const [posts, setPosts] = useState<GetAllPostsModel>([]);
 
@@ -40,7 +44,12 @@ export function HomeScreenCosumer({children, service}: HomeScreenCosumerProps) {
     try {
       setLoading(true);
       const response = await service.findAll();
-      setPosts(response);
+      const localResponse = await storage.get('@posts');
+      if (localResponse !== null && localResponse !== undefined) {
+        return setPosts([...localResponse, ...response]);
+      } else {
+        return setPosts(response);
+      }
     } catch (error: any) {
       setPosts([]);
       Alert.alert('Atenção', `${error.message}`);
@@ -48,7 +57,7 @@ export function HomeScreenCosumer({children, service}: HomeScreenCosumerProps) {
     } finally {
       setLoading(false);
     }
-  }, [service]);
+  }, [service, storage]);
 
   useEffect(() => {
     triggerToGetAllPosts();
