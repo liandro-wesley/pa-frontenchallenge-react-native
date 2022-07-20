@@ -18,8 +18,10 @@ const StackNavigation: React.FC = () => {
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen name={Routes.HOME} component={HomeScreenFactory} />
-      <Stack.Screen name={Routes.READ} initialParams={{postId: '1'}}>
+      <Stack.Screen name={Routes.HOME}>
+        {props => <HomeScreenFactory navigation={props.navigation} />}
+      </Stack.Screen>
+      <Stack.Screen name={Routes.READ} initialParams={{postId: ''}}>
         {props => (
           <ReadPostScreenFactory
             navigation={props.navigation}
