@@ -3,16 +3,17 @@ import Typography from '@presentation/components/Typography';
 import * as S from './styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {useReadPostScreenContext} from '../../contex';
+import {Routes} from '@main/navigation/routes';
 
 const BackIcon = memo(() => <Icon name="chevron-left" size={24} />);
 const DeleteIcon = memo(() => <Icon name="trash-o" size={24} />);
 const FavoriteIcon = memo(() => <Icon name="heart-o" size={24} />);
 
 const Action: React.FC = () => {
-  const {post} = useReadPostScreenContext();
+  const {post, navigation} = useReadPostScreenContext();
   return (
     <S.Container>
-      <S.Back onPress={() => console.log('asdasdasd')}>
+      <S.Back onPress={() => navigation.navigate(Routes.HOME)}>
         <Typography variant="body" color="white800">
           <BackIcon />
         </Typography>
