@@ -24,6 +24,7 @@ type ReadPostScreenConsumerProps = {
 type InitialContextProps = {
   post: ReadAPostModel;
   loading: boolean;
+  navigation: NativeStackNavigationProp<StackParams, Routes.READ>;
 };
 
 export const ReadPostScreenContext = createContext<InitialContextProps>(
@@ -63,6 +64,7 @@ export function ReadPostScreenConsumer({
   const value = {
     loading,
     post,
+    navigation,
   };
   return (
     <ReadPostScreenContext.Provider value={value}>
