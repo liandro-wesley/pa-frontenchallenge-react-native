@@ -14,7 +14,7 @@ const Stack = createNativeStackNavigator<StackParams>();
 const StackNavigation: React.FC = () => {
   return (
     <Stack.Navigator
-      initialRouteName={Routes.READ}
+      initialRouteName={Routes.HOME}
       screenOptions={{
         headerShown: false,
       }}>
