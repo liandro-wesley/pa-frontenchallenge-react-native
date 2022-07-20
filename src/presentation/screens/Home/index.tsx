@@ -7,13 +7,13 @@ import {HomeScreenCosumer} from './contex';
 import * as S from './styles';
 
 export type HomeScreenProps = {
-  getAllPosts: GetAllPosts;
+  service: GetAllPosts;
   storage: StorageClientAdapter;
 };
 
-const HomeScreen: React.FC<HomeScreenProps> = ({getAllPosts, storage}) => {
+const HomeScreen: React.FC<HomeScreenProps> = ({service, storage}) => {
   return (
-    <HomeScreenCosumer service={getAllPosts} storage={storage}>
+    <HomeScreenCosumer service={service} storage={storage}>
       <S.Container>
         <PostsList />
       </S.Container>
