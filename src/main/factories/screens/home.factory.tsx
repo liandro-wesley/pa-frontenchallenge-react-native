@@ -5,10 +5,7 @@ import {makeStorageAdapter} from '@main/factories/cache/storage-client-adapter.f
 
 const HomeScreenFactory: React.FC = () => {
   return (
-    <HomeScreen
-      getAllPosts={makeGetAllPosts()}
-      storage={makeStorageAdapter()}
-    />
+    <HomeScreen service={makeGetAllPosts()} storage={makeStorageAdapter()} />
   );
 };
 
