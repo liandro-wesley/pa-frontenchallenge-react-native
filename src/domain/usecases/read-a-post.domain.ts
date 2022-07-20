@@ -5,5 +5,5 @@ export type Params = {
 };
 
 export interface ReadAPost {
-  details: (params: Params) => Promise<ReadAPostModel>;
+  details: () => Promise<ReadAPostModel>;
 }
