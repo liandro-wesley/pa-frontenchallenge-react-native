@@ -6,9 +6,10 @@ import {useHomeScreenContext} from '../../contex';
 import * as S from './style';
 import Loading from '@presentation/components/Loading';
 import Empty from '@presentation/components/Empty';
+import {Routes} from '@main/navigation/routes';
 
 const PostsList: React.FC = () => {
-  const {loading, posts} = useHomeScreenContext();
+  const {loading, posts, navigation} = useHomeScreenContext();
   return (
     <S.Container>
       {loading && <Loading />}
@@ -22,6 +23,9 @@ const PostsList: React.FC = () => {
               renderItem={({item}) => (
                 <S.Wrapper>
                   <Card
+                    onPress={() =>
+                      navigation.navigate(Routes.READ, {postId: item.id})
+                    }
                     header={
                       <Typography variant="title" color="white800">
                         {item.title}
@@ -40,38 +44,6 @@ const PostsList: React.FC = () => {
         </>
       )}
     </S.Container>
-    // <S.Container>
-
-    //   {!loading && (
-    //     <>
-    //       {posts.length === 0 && (
-    //         <Typography variant="title" color="accentColor">
-    //           Não há nenhuma publicação
-    //         </Typography>
-    //       )}
-    //       {posts.length > 0 && (
-    //         <>
-    //           {posts.map(post => (
-    //             <S.Wrapper key={post.id}>
-    //               <Card
-    //                 header={
-    //                   <Typography variant="title" color="white800">
-    //                     {post.title}
-    //                   </Typography>
-    //                 }
-    //                 content={
-    //                   <Typography variant="body" color="white800">
-    //                     {post.body.slice(0, 60)}...
-    //                   </Typography>
-    //                 }
-    //               />
-    //             </S.Wrapper>
-    //           ))}
-    //         </>
-    //       )}
-    //     </>
-    //   )}
-    // </S.Container>
   );
 };
 
