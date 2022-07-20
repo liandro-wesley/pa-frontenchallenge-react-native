@@ -5,19 +5,19 @@ import {makeReadAPost} from '../usecases/remote-read-a-post.factory';
 import {RouteProp} from '@react-navigation/native';
 import {StackParams} from '@main/navigation/stack';
 import {Routes} from '@main/navigation/routes';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 type Props = {
   route: RouteProp<StackParams, Routes.READ>;
-  navigation: NativeStackScreenProps<StackParams, Routes.READ>;
+  navigation: NativeStackNavigationProp<StackParams, Routes.READ>;
 };
 
 const ReadPostScreenFactory: React.FC<Props> = ({route, navigation}) => {
   return (
     <ReadPostScreen
+      navigation={navigation}
       service={makeReadAPost(route)}
       storage={makeStorageAdapter()}
-      navigation={navigation}
     />
   );
 };

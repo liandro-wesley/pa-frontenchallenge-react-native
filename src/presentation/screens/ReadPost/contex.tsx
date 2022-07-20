@@ -3,14 +3,12 @@ import {ReadAPost} from '@domain/usecases/read-a-post.domain';
 import {StorageClientAdapter} from '@infra/storage-client-adapter.infra';
 import {Routes} from '@main/navigation/routes';
 import {StackParams} from '@main/navigation/stack';
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React, {
   createContext,
   useContext,
   ReactNode,
   useState,
-  // Dispatch,
-  // SetStateAction,
   useEffect,
   useCallback,
 } from 'react';
@@ -20,7 +18,7 @@ type ReadPostScreenConsumerProps = {
   children: ReactNode;
   service: ReadAPost;
   storage: StorageClientAdapter;
-  navigation: NativeStackScreenProps<StackParams, Routes.READ>;
+  navigation: NativeStackNavigationProp<StackParams, Routes.READ>;
 };
 
 type InitialContextProps = {
@@ -39,6 +37,7 @@ export function useReadPostScreenContext() {
 export function ReadPostScreenConsumer({
   children,
   service,
+  navigation,
 }: ReadPostScreenConsumerProps) {
   const [loading, setLoading] = useState<boolean>(false);
   const [post, setPost] = useState<ReadAPostModel>({} as ReadAPostModel);
@@ -49,12 +48,13 @@ export function ReadPostScreenConsumer({
       const response = await service.details();
       setPost(response);
     } catch (error: any) {
-      Alert.alert('Atenção', `${error.message}`);
+      navigation.navigate(Routes.HOME);
       setLoading(false);
+      Alert.alert('Atenção', `${error.message}`);
     } finally {
       setLoading(false);
     }
-  }, [service]);
+  }, [service, navigation]);
 
   useEffect(() => {
     triggerToGetPostDetails();
