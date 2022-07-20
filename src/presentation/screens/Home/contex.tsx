@@ -1,6 +1,8 @@
 import {GetAllPostsModel} from '@domain/models/get-all-posts.model';
 import {GetAllPosts} from '@domain/usecases/get-all-posts.domain';
 import {StorageClientAdapter} from '@infra/storage-client-adapter.infra';
+import {StackParams} from '@main/navigation/stack';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React, {
   createContext,
   useContext,
@@ -17,11 +19,13 @@ type HomeScreenCosumerProps = {
   children: ReactNode;
   service: GetAllPosts;
   storage: StorageClientAdapter;
+  navigation: NativeStackNavigationProp<StackParams, any>;
 };
 
 type InitialContextProps = {
   posts: GetAllPostsModel;
   loading: boolean;
+  navigation: NativeStackNavigationProp<StackParams, any>;
 };
 
 export const HomeScreenContext = createContext<InitialContextProps>(
@@ -36,6 +40,7 @@ export function HomeScreenCosumer({
   children,
   service,
   storage,
+  navigation,
 }: HomeScreenCosumerProps) {
   const [loading, setLoading] = useState<boolean>(false);
   const [posts, setPosts] = useState<GetAllPostsModel>([]);
@@ -66,6 +71,7 @@ export function HomeScreenCosumer({
   const value = {
     loading,
     posts,
+    navigation,
   };
   return (
     <HomeScreenContext.Provider value={value}>
