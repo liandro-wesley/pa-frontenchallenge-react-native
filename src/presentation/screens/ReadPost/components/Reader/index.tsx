@@ -11,7 +11,7 @@ const Reader: React.FC = () => {
         {post.title}
       </Typography>
       <Typography variant="body" color="white800">
-        {post.title}
+        {post.body}
       </Typography>
     </>
   );
