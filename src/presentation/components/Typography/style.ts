@@ -14,11 +14,10 @@ const modifiers = {
   `,
 };
 
-export const Wrapper = styled.Text<TypographyProps>`
+export const Text = styled.Text<TypographyProps>`
   ${({theme, variant, color}) => css`
     color: ${theme.colors[color]};
     align-items: center;
-    margin-bottom: ${theme.spacing.large};
 
     ${variant === 'title' && modifiers.title()}
     ${variant === 'body' && modifiers.body()}
