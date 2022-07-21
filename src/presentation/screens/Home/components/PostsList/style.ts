@@ -5,6 +5,6 @@ export const Container = styled.View`
 `;
 export const Wrapper = styled.View`
   ${({theme}) => css`
-    margin-top: ${theme.spacing.large};
+    margin-top: ${theme.spacing.normal};
   `}
 `;
