@@ -8,9 +8,10 @@ export class StorageClientAdapter
    * @async
    * @param key Reference to get a value in storage
    */
-  public async get(key: string): Promise<any> {
-    const data = await AsyncStorage.getItem(key);
-    return JSON.parse(`${data}`);
+  public async get<T = any>(key: string): Promise<T> {
+    return await AsyncStorage.getItem(key).then(
+      value => JSON.parse(`${value}`) as T,
+    );
   }
 
   /**
@@ -18,7 +19,7 @@ export class StorageClientAdapter
    * @param key Reference to set a value in storage
    * @param value An object you want to insert into storage
    */
-  public async set(key: string, value: object): Promise<void> {
+  public async set<T = any>(key: string, value: T): Promise<void> {
     return await AsyncStorage.setItem(key, JSON.stringify(value));
   }
 
