@@ -8,9 +8,11 @@ import {Routes} from '@main/navigation/routes';
 const BackIcon = memo(() => <Icon name="chevron-left" size={24} />);
 const DeleteIcon = memo(() => <Icon name="trash-o" size={24} />);
 const FavoriteIcon = memo(() => <Icon name="heart-o" size={24} />);
+const FavoriteIconSolid = memo(() => <Icon name="heart" size={24} />);
 
 const Action: React.FC = () => {
-  const {post, navigation} = useReadPostScreenContext();
+  const {post, navigation, favoritePost, isItFavorite} =
+    useReadPostScreenContext();
   return (
     <S.Container>
       <S.Back onPress={() => navigation.navigate(Routes.HOME)}>
@@ -27,9 +29,12 @@ const Action: React.FC = () => {
             <DeleteIcon />
           </Typography>
         </S.PostActionsItem>
-        <S.PostActionsItem>
-          <Typography variant="body" color="white800">
-            <FavoriteIcon />
+        <S.PostActionsItem onPress={() => favoritePost(post)}>
+          <Typography
+            variant="body"
+            color={isItFavorite ? 'accentColor' : 'white800'}>
+            {isItFavorite && <FavoriteIconSolid />}
+            {!isItFavorite && <FavoriteIcon />}
           </Typography>
         </S.PostActionsItem>
       </S.PostActions>
