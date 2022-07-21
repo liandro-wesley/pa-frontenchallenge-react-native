@@ -1,3 +1,4 @@
+import FavoritePostsScreenFactory from '@main/factories/screens/favorite-posts.factory';
 import HomeScreenFactory from '@main/factories/screens/home.factory';
 import ReadPostScreenFactory from '@main/factories/screens/read-post.factory';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -6,6 +7,7 @@ import {Routes} from './routes';
 
 export type StackParams = {
   [Routes.HOME]: undefined;
+  [Routes.FAVORITE]: undefined;
   [Routes.READ]: {postId: string};
 };
 
@@ -29,6 +31,10 @@ const StackNavigation: React.FC = () => {
           />
         )}
       </Stack.Screen>
+      <Stack.Screen
+        name={Routes.FAVORITE}
+        component={FavoritePostsScreenFactory}
+      />
     </Stack.Navigator>
   );
 };
