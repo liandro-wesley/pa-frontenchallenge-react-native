@@ -12,7 +12,7 @@
 
 ## Sobre a implementação
 
-Para o desenvolvimento, foi utilizado o _React Native_ com _TypeScript_. A implementação está focada principalmente no Android. Mas, você não deve ter problemas ao executá-la no IOS. Como já mencionado, o principal objetivo desta aplicação é servir como base comprabatória de meus conhecimentos técnicos para a empresa Plantão Ativo. A Aplicação consiste num aplicativo capaz de ler, criar, deletar e favoritar publicações fornecidas através de uma Fake API. Opter por fazer esta implementação utilizando o padrão arquitetural MVP, afim de promover uma aplicação escalável desde o dia 0, escrita para o futuro e, claro, com foco em alta coesão e baixo acoplamento (apesar de que em alguns casos isso não foi 100% atingido).
+Para o desenvolvimento, foi utilizado o _React Native_ com _TypeScript_. A implementação está focada principalmente no Android. Mas, você não deve ter problemas ao executá-la no IOS. Como já mencionado, o principal objetivo desta aplicação é servir como base comprabatória de meus conhecimentos técnicos para a empresa Plantão Ativo. A Aplicação consiste num aplicativo capaz de ler, criar, deletar e favoritar publicações fornecidas através de uma Fake API. Optei por fazer esta implementação utilizando o padrão arquitetural MVP, afim de promover uma aplicação escalável desde o dia 0, escrita para o futuro e, claro, com foco em alta coesão e baixo acoplamento.
 
 ## Sobre a arquitetura
 
