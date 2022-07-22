@@ -16,7 +16,7 @@ Para o desenvolvimento, foi utilizado o _React Native_ com _TypeScript_. A imple
 
 ## Sobre a arquitetura
 
-Como mencionado no tópico anterior, foi utilizado o padrão arquietural MVP (Model-View-Presenter) como forma de promover o uso de uma arquietura limpa.
+Como mencionado no tópico anterior, foi utilizado o padrão arquitetural MVP (Model-View-Presenter) como forma de promover o uso de uma arquietura limpa.
 
 Resumidamente, seguimos implementando nossas regras de negócio, através de interfaces (Interface Segregation Principle) na camada de domínio (Domain), fazemos a implementação concreta (Dependecy Inversion Principle) dos casos de uso na camada de dados (Data). A cama de infraestrutura (Infra) é responsável por se comunicar com serviços externos a nossa aplicação, é ela que vai estabelecer os protocolos necessários para que essa comunicação ocorra. A camada de apresentação (Presentation) é responsável, no caso do front-end, por servir, além do nosso presenter, também nossa UI.
 
