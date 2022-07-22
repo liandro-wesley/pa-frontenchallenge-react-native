@@ -18,9 +18,9 @@ Para o desenvolvimento, foi utilizado o _React Native_ com _TypeScript_. A imple
 
 Como mencionado no tópico anterior, foi utilizado o padrão arquitetural MVP (Model-View-Presenter) como forma de promover o uso de uma arquietura limpa.
 
-Resumidamente, seguimos implementando nossas regras de negócio, através de interfaces (Interface Segregation Principle) na camada de domínio (Domain), fazemos a implementação concreta (Dependecy Inversion Principle) dos casos de uso na camada de dados (Data). A cama de infraestrutura (Infra) é responsável por se comunicar com serviços externos a nossa aplicação, é ela que vai estabelecer os protocolos necessários para que essa comunicação ocorra. A camada de apresentação (Presentation) é responsável, no caso do front-end, por servir, além do nosso presenter, também nossa UI.
+Resumidamente, seguimos implementando nossas regras de negócio, através de interfaces (Interface Segregation Principle) na camada de domínio (Domain), fazemos a implementação concreta (Dependecy Inversion Principle) dos casos de uso na camada de dados (Data). A camada de infraestrutura (Infra) é responsável por se comunicar com serviços externos a nossa aplicação, é ela que vai estabelecer os protocolos necessários para que essa comunicação ocorra. A camada de apresentação (Presentation) é responsável, no caso do front-end, por servir, além do nosso presenter, também nossa UI.
 
-No MVP, para mantermos as camadas, digamos... Mais voltadas para a lógica, totalmente desacopladas e independentes, precisamos sacrificar alguma parte de nossa aplicação para isso. Portanto, temos criamos a camada Main que fará exatamente isso. É nela que vamos compôr de fato os casos de usos, usando, por exemplo, o Composite Pattern.
+No MVP, para mantermos as camadas, digamos... Mais voltadas para a lógica, totalmente desacopladas e independentes, precisamos sacrificar alguma parte de nossa aplicação para isso. Portanto, criamos a camada Main que fará exatamente isso. É nela que vamos compôr de fato os casos de uso, usando, por exemplo, o Composite Pattern.
 
 Você pode obter mais detalhes da arquitetura desta aplicação [clicando aqui](https://whimsical.com/pafrontendchallengearchitecture-9GEceWiVpeyQspVer8SzgW)
 
