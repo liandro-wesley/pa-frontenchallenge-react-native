@@ -2,14 +2,14 @@ import Card from '@presentation/components/Card';
 import Typography from '@presentation/components/Typography';
 import React from 'react';
 import {FlatList} from 'react-native';
-import {useHomeScreenContext} from '../../contex';
+import {useFavoritePostsScreenContext} from '../../contex';
 import * as S from './style';
 import Loading from '@presentation/components/Loading';
 import Empty from '@presentation/components/Empty';
 import {Routes} from '@main/navigation/routes';
 
 const PostsList: React.FC = () => {
-  const {loading, posts, navigation} = useHomeScreenContext();
+  const {loading, posts, navigation} = useFavoritePostsScreenContext();
   return (
     <S.Container>
       {loading && <Loading />}
@@ -33,10 +33,7 @@ const PostsList: React.FC = () => {
                     }
                     content={
                       <Typography variant="body" color="white800">
-                        {item.body.length >= 60
-                          ? item.body.slice(0, 60)
-                          : item.body}
-                        ...
+                        {item.body.slice(0, 60)}...
                       </Typography>
                     }
                   />

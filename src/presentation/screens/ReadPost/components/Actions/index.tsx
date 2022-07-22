@@ -11,7 +11,7 @@ const FavoriteIcon = memo(() => <Icon name="heart-o" size={24} />);
 const FavoriteIconSolid = memo(() => <Icon name="heart" size={24} />);
 
 const Action: React.FC = () => {
-  const {post, navigation, favoritePost, isItFavorite} =
+  const {post, navigation, favoritePost, isItFavorite, removeFavoritePost} =
     useReadPostScreenContext();
   return (
     <S.Container>
@@ -29,14 +29,20 @@ const Action: React.FC = () => {
             <DeleteIcon />
           </Typography>
         </S.PostActionsItem>
-        <S.PostActionsItem onPress={() => favoritePost(post)}>
-          <Typography
-            variant="body"
-            color={isItFavorite ? 'accentColor' : 'white800'}>
-            {isItFavorite && <FavoriteIconSolid />}
-            {!isItFavorite && <FavoriteIcon />}
-          </Typography>
-        </S.PostActionsItem>
+        {isItFavorite && (
+          <S.PostActionsItem onPress={() => removeFavoritePost(post.id)}>
+            <Typography variant="body" color={'accentColor'}>
+              <FavoriteIconSolid />
+            </Typography>
+          </S.PostActionsItem>
+        )}
+        {!isItFavorite && (
+          <S.PostActionsItem onPress={() => favoritePost(post)}>
+            <Typography variant="body" color="white800">
+              <FavoriteIcon />
+            </Typography>
+          </S.PostActionsItem>
+        )}
       </S.PostActions>
     </S.Container>
   );

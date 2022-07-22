@@ -33,7 +33,7 @@ const HomeScreen: React.FC<HomeScreenProps> = ({
       <S.Container>
         <Action />
         <PostsList />
-        <S.CreatePost>
+        <S.CreatePost onPress={() => navigation.navigate(Routes.CREATE)}>
           <Typography variant="body" color="white800">
             <AddIcon />
           </Typography>

@@ -1,4 +1,4 @@
-import {RemoteDeleteAPost} from '@data/usecases/remote-dele-a-post.data';
+import {RemoteDeleteAPost} from '@data/usecases/posts/remote-dele-a-post.data';
 import {makeApiUrl} from '../http/api-url.factory';
 import {makeHttpClient} from '../http/http-client.factory';
 

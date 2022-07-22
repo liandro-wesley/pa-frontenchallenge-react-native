@@ -1,5 +1,4 @@
 import {GetAllPostsModel} from '@domain/models/get-all-posts.model';
-import {GetAllPosts} from '@domain/usecases/get-all-posts.domain';
 import {StorageClientAdapter} from '@infra/storage-client-adapter.infra';
 import {StackParams} from '@main/navigation/stack';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -15,9 +14,8 @@ import React, {
 } from 'react';
 import {Alert} from 'react-native';
 
-type HomeScreenCosumerProps = {
+type FavoritePostsScreenProps = {
   children: ReactNode;
-  service: GetAllPosts;
   storage: StorageClientAdapter;
   navigation: NativeStackNavigationProp<StackParams, any>;
 };
@@ -28,33 +26,27 @@ type InitialContextProps = {
   navigation: NativeStackNavigationProp<StackParams, any>;
 };
 
-export const HomeScreenContext = createContext<InitialContextProps>(
+export const FavoritePostsScreenContext = createContext<InitialContextProps>(
   {} as InitialContextProps,
 );
 
-export function useHomeScreenContext() {
-  return useContext(HomeScreenContext);
+export function useFavoritePostsScreenContext() {
+  return useContext(FavoritePostsScreenContext);
 }
 
-export function HomeScreenCosumer({
+export function FavoritePostsScreenConsumer({
   children,
-  service,
   storage,
   navigation,
-}: HomeScreenCosumerProps) {
+}: FavoritePostsScreenProps) {
   const [loading, setLoading] = useState<boolean>(false);
   const [posts, setPosts] = useState<GetAllPostsModel>([]);
 
   const triggerToGetAllPosts = useCallback(async () => {
     try {
       setLoading(true);
-      const response = await service.findAll();
-      const localResponse = await storage.get('posts');
-      if (localResponse !== null || localResponse !== undefined) {
-        return setPosts([localResponse, ...response]);
-      } else {
-        return setPosts(response);
-      }
+      const response = await storage.get<GetAllPostsModel>('favorites');
+      return setPosts(response);
     } catch (error: any) {
       setPosts([]);
       Alert.alert('Atenção', `${error.message}`);
@@ -62,7 +54,7 @@ export function HomeScreenCosumer({
     } finally {
       setLoading(false);
     }
-  }, [service, storage]);
+  }, [storage]);
 
   useEffect(() => {
     triggerToGetAllPosts();
@@ -74,8 +66,8 @@ export function HomeScreenCosumer({
     navigation,
   };
   return (
-    <HomeScreenContext.Provider value={value}>
+    <FavoritePostsScreenContext.Provider value={value}>
       {children}
-    </HomeScreenContext.Provider>
+    </FavoritePostsScreenContext.Provider>
   );
 }

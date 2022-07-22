@@ -6,6 +6,7 @@ import {RouteProp} from '@react-navigation/native';
 import {StackParams} from '@main/navigation/stack';
 import {Routes} from '@main/navigation/routes';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {makeGetAllFavoritePosts} from '../usecases/favorite-posts/remote-get-all-favorite-posts';
 
 type Props = {
   route: RouteProp<StackParams, Routes.READ>;
@@ -15,9 +16,12 @@ type Props = {
 const ReadPostScreenFactory: React.FC<Props> = ({route, navigation}) => {
   return (
     <ReadPostScreen
-      navigation={navigation}
+      favoritePosts={{
+        get: makeGetAllFavoritePosts(),
+      }}
       service={makeReadAPost(route)}
       storage={makeStorageAdapter()}
+      navigation={navigation}
     />
   );
 };
