@@ -36,10 +36,14 @@ O Aplicativo contém as seguintes tecnologias:
 - Styled Components
 - Lottie Files para animações
 
+<p align="flex-start">
 <img src=".github/assets/home.png" />
 <img src=".github/assets/read.png" />
 <img src=".github/assets/create.png" />
 <img src=".github/assets/favorite.png" />
+</p>
+
+
 
 ## Como rodar o projeto
 
