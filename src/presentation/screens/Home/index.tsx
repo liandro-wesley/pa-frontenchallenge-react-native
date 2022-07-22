@@ -11,11 +11,14 @@ import PostsList from './components/PostsList';
 import {HomeScreenCosumer} from './contex';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import * as S from './styles';
+import {FindAPost} from '@domain/usecases/find-a-post.domain';
 
 const AddIcon = memo(() => <Icon name="post-add" size={24} />);
 
 export type HomeScreenProps = {
   service: GetAllPosts;
+  findAPost: FindAPost;
+
   storage: StorageClientAdapter;
   navigation: NativeStackNavigationProp<StackParams, Routes.READ>;
 };
@@ -24,9 +27,11 @@ const HomeScreen: React.FC<HomeScreenProps> = ({
   service,
   storage,
   navigation,
+  findAPost,
 }) => {
   return (
     <HomeScreenCosumer
+      findAPost={findAPost}
       navigation={navigation}
       service={service}
       storage={storage}>
